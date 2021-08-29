@@ -2,7 +2,24 @@
 jQuery.noConflict();
 jQuery(document).ready(function () {
 
-    'use strict';
+	'use strict';	
+	jQuery('.nav__hamburger').click(function(){
+		jQuery('.nav__menu').toggle("slow");
+		jQuery('.nav__menu').toggleClass("d-flex");
+		jQuery('.nav__hamburger').toggleClass("open");
+		open = false;
+	});
+
+	jQuery( window ).resize(function() {
+		let currentWidth = jQuery( window ).width();
+		let maxMobileWidth = 991;
+
+		if(currentWidth > maxMobileWidth ) {
+			jQuery('.nav__menu').css("display", "flex");
+		} else {
+			jQuery('.nav__menu').css("display", "none");
+		}
+	  });
 	
 	jQuery(".fancybox").fancybox();
 
